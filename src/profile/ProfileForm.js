@@ -1,91 +1,41 @@
 import React, { Component } from 'react';
 import './ProfileForm.css';
+import { Form, Input } from 'form-mechanics';
+import { formModel } from 'form-mechanics/dist/mst';
 
-// import {}
+
+import TextInput from './TextInput';
+
+
+const FormModel = formModel('ProfileForm', {
+  name: { widget: TextInput },
+})
 
 
 class ProfileForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      nameValue: '',
-      sleepValue: '',
-      colourValue: '',
-    };
+    this.model = FormModel.create();
   }
 
-  handleNameChange = e => {
-    const newName = e.currentTarget.value;
-    this.setState({ nameValue: newName });
-  }
-
-  handleSleepChange = e => {
-    const newSleep = e.currentTarget.value;
-    this.setState({ sleepValue: newSleep });
-  }
-
-  handleColourChange = e => {
-    const newColour = e.currentTarget.value;
-    this.setState({ colourValue: newColour });
-  }
-
-  handleSubmit = e => {
-    e.preventDefault();  // stop the browser's submit behaviour
+  handleSubmit = formData => {
     const { onSave } = this.props;
-    const { nameValue, sleepValue, colourValue } = this.state;
-    const me = {
-      name: nameValue,
-      alertness: sleepValue,
-      faveColour: colourValue,
-    };
-    onSave(me);
+    onSave(formData);
   }
 
   render() {
-    const { nameValue, sleepValue, colourValue } = this.state;
     return (
       <div className="ProfileForm">
         <h1>All about you</h1>
-        <form action="/submit" method="post" onSubmit={this.handleSubmit}>
+        <Form model={this.model} onSubmit={this.handleSubmit}>
           <p>
-            <label htmlFor="my-name">Your name: </label>
-            <input
-              className="ProfileForm-text"
-              id="my-name"
-              name="my-name"
-              onChange={this.handleNameChange}
-              type="text"
-              value={nameValue}
-              required
-            />
-          </p>
-          <p>
-            <label htmlFor="how-much-sleep">How much did you sleep: </label>
-            <input
-              id="how-much-sleep"
-              min="0"
-              max="100"
-              name="how-much-sleep"
-              onChange={this.handleSleepChange}
-              type="range"
-              value={sleepValue}
-            />
-          </p>
-          <p>
-            <label htmlFor="fave-colour">Favourite colour: </label>
-            <input
-              className="ProfileForm-colour"
-              id="fave-colour"
-              name="fave-colour"
-              onChange={this.handleColourChange}
-              type="color"
-              value={colourValue}
-            />
+            <label htmlFor="???">Your name: </label>
+            <Input field="name" />
           </p>
           <p>
             <button className="ProfileForm-button" type="submit">Submit</button>
           </p>
-        </form>
+        </Form>
       </div>
     );
   }

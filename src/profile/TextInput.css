@@ -1,0 +1,9 @@
+.TextInput {
+  background: #eee;
+  border: 0;
+  border-bottom: 2px solid #aaa;
+  box-shadow: none;
+  color: #222;
+  font-size: 1em;
+  padding: 0.333em 0.5em;
+}
