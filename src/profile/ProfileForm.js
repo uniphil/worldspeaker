@@ -12,7 +12,21 @@ class ProfileForm extends Component {
     return (
       <div className="ProfileForm">
         <h1>All about you</h1>
-        <p><em>a form...</em></p>
+        <form action="/submit" method="post">
+          <p>
+            <label htmlFor="my-name">Your name: </label>
+            <input
+              id="my-name"
+              name="my-name"
+              className="ProfileForm-text"
+              type="text"
+              required
+            />
+          </p>
+          <p>
+            <button className="ProfileForm-button" type="submit">Submit</button>
+          </p>
+        </form>
       </div>
     );
   }
