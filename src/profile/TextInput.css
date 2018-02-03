@@ -7,3 +7,9 @@
   font-size: 1em;
   padding: 0.333em 0.5em;
 }
+
+.TextInput:hover,
+.TextInput:focus {
+  background: #ddd;
+  border-bottom-color: #61DAFB;
+}

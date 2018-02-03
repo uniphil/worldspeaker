@@ -5,6 +5,7 @@ import { formModel } from 'form-mechanics/dist/mst';
 
 import Field from './Field';
 import TextInput from './TextInput';
+import Submit from './Submit';
 
 
 const FormModel = formModel('ProfileForm', {
@@ -31,9 +32,7 @@ class ProfileForm extends Component {
         <h1>All about you</h1>
         <Form model={this.model} onSubmit={this.handleSubmit}>
           <Field field="name">Your name: </Field>
-          <p>
-            <button className="ProfileForm-button" type="submit">Submit</button>
-          </p>
+          <Submit>Set me up!</Submit>
         </Form>
       </div>
     );

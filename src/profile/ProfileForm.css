@@ -1,18 +1,2 @@
 .ProfileForm {
 }
-
-.ProfileForm-button {
-  background: #222;
-  border: 2px solid #61DAFB;
-  border-radius: 2em;
-  color: #fff;
-  font-size: 1em;
-  font-weight: bold;
-  padding: 0.333em 1.5em;
-}
-
-.ProfileForm-text:hover,
-.ProfileForm-text:focus {
-  background: #ddd;
-  border-bottom-color: #61DAFB;
-}
