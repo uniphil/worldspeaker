@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import './ProfileForm.css';
-import { Form, Input } from 'form-mechanics';
+import { Form } from 'form-mechanics';
 import { formModel } from 'form-mechanics/dist/mst';
 
-
+import Field from './Field';
 import TextInput from './TextInput';
 
 
 const FormModel = formModel('ProfileForm', {
-  name: { widget: TextInput },
-})
-
+  name: {
+    inputComponent: TextInput,
+    required: true,
+  },
+});
 
 class ProfileForm extends Component {
   constructor(props) {
@@ -28,10 +30,7 @@ class ProfileForm extends Component {
       <div className="ProfileForm">
         <h1>All about you</h1>
         <Form model={this.model} onSubmit={this.handleSubmit}>
-          <p>
-            <label htmlFor="???">Your name: </label>
-            <Input field="name" />
-          </p>
+          <Field field="name">Your name: </Field>
           <p>
             <button className="ProfileForm-button" type="submit">Submit</button>
           </p>

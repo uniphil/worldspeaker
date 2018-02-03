@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import './TextInput.css';
 
+const shouty = value =>
+  value.toUpperCase();
+
 class TextInput extends Component {
   static isEmpty = value =>
     value === '';
 
-  static validate = value =>
-    Promise.resolve(value);
+  static validate = value => value.toLowerCase() === 'neville'
+    ? Promise.resolve(value)
+    : Promise.reject('sorry, you\'re not the one');
 
   handleChange = e => {
     const { onUpdate } = this.props;
@@ -17,6 +21,7 @@ class TextInput extends Component {
   render() {
     const {
       id,
+      committed,
       onCommit: handleCommit,
       raw,
       required,
@@ -24,9 +29,10 @@ class TextInput extends Component {
     return (
       <input
         className="TextInput"
+        id={id}
         onBlur={handleCommit}
         onChange={this.handleChange}
-        value={raw}
+        value={committed ? shouty(raw) : raw}
         required={required}
       />
     );

@@ -14,10 +14,6 @@ const howAlert = sleepLevel => {
 };
 
 class AboutMe extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { info } = this.props;
     return (
