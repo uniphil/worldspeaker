@@ -7,9 +7,10 @@ class AboutMe extends Component {
   }
 
   render() {
+    const { info } = this.props;
     return (
       <div className="AboutMe">
-        <p><em>a form...</em></p>
+        <h1>hi {info.name}</h1>
       </div>
     );
   }
